@@ -1,5 +1,6 @@
 local f = io.open("input", "r")
 local line = f:read("*l")
+f:close()
 
 local score_total = 0
 local score_value = 1
@@ -13,7 +14,7 @@ local trash_close = string.byte('>')
 local i = 1
 while i <= #line do
     local byte = line:byte(i)
-   
+
     if byte == escape_char then
         i = i + 1
     elseif byte == group_open then
@@ -30,8 +31,8 @@ while i <= #line do
             end
         end
     end
-   
-   i = i + 1 
+
+    i = i + 1
 end
 
 print(score_total)

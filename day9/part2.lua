@@ -1,5 +1,6 @@
 local f = io.open("input", "r")
 local line = f:read("*l")
+f:close()
 
 local group_open  = string.byte('{')
 local group_close = string.byte('}')
@@ -24,8 +25,8 @@ while i <= #line do
             end
         end
     end
-   
-   i = i + 1 
+
+    i = i + 1 
 end
 
 print(trash_total)

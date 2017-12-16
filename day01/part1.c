@@ -49,7 +49,7 @@ int main(void) {
         }
     }
 
-    printf("sum = %lu\n", sum);
+    printf("%lu\n", sum);
 
     return 0;
 }

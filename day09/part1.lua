@@ -15,9 +15,7 @@ local i = 1
 while i <= #line do
     local byte = line:byte(i)
 
-    if byte == escape_char then
-        i = i + 1
-    elseif byte == group_open then
+    if byte == group_open then
         score_total = score_total + score_value
         score_value = score_value + 1
     elseif byte == group_close then

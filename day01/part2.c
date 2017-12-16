@@ -51,7 +51,7 @@ int main(void) {
 
     sum = sum * 2;
 
-    printf("sum = %lu\n", sum);
+    printf("%lu\n", sum);
 
     return 0;
 }

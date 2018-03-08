@@ -15,7 +15,7 @@ node *insert_node(node *cur, int i) {
 }
 
 int main(void) {
-    int step = 316;
+    const int step = 316;
     int bufsize = 1;
 
     // current node

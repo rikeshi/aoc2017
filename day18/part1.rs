@@ -39,7 +39,10 @@ fn main() {
                 Ok(x) => x,
                 _ => match regs.binary_search_by_key(&arg1, |&(k, _v)| k) {
                     Ok(i) => regs[i].1,
-                    _ => { panic!("accessing undefined register") }
+                    Err(i) => {
+                        regs.insert(i, (arg1, 0));
+                        i as i64
+                    }
                 }
             };
             match inst {
@@ -65,7 +68,10 @@ fn main() {
                 Ok(y) => y,
                 _ => match regs.binary_search_by_key(&arg2, |&(k, _v)| k) {
                     Ok(i) => regs[i as usize].1,
-                    _ => { panic!("accessing undefined register") }
+                    Err(i) => {
+                        regs.insert(i, (arg1, 0));
+                        i as i64
+                    }
                 }
             };
             match inst {

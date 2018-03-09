@@ -2,7 +2,6 @@ use std::fs::File;
 use std::io::BufReader;
 use std::io::BufRead;
 
-
 fn read_lines(fname: &str) -> Vec<String> {
     let f = File::open(fname).expect("no such file");
     let mut lines: Vec<String> = Vec::new();
@@ -33,7 +32,7 @@ fn main() {
         let arg2 = if line.len() > 5 { &line[6..] } else { "" };
 
         if arg2.is_empty() {
-            // instructions with one arg
+            // instructions with 1 arg
             let optx = arg1.parse::<i64>();
             let x = match optx {
                 Ok(x) => x,

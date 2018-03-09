@@ -33,12 +33,8 @@ void move(packet *p) {
     }
 }
 
-void check(const char buf[], size_t cols, packet *p) {
+int check(const char buf[], size_t cols, packet *p) {
     char c = buf[p->y * cols + p->x];
-    // have we found a letter?
-    if (c >= 'A' && c <= 'Z') {
-        printf("%c", c);
-    }
     // update direction
     if (c == '+') {
         char l;
@@ -59,10 +55,9 @@ void check(const char buf[], size_t cols, packet *p) {
         else if (r == '|' || r == '-') p->d =  (r == '|') + 1;
     }
     if (c == ' ') {
-        //Done, exit
-        printf("\n");
-        exit(1);
+        return 0;
     }
+    return 1;
 }
 
 int main(void) {
@@ -82,10 +77,15 @@ int main(void) {
     pacman.y = 0;
     pacman.d = DOWN;
 
+    size_t count = 0;
+
     while (1) {
+        count++;
         move(&pacman);
-        check(buffer, cols, &pacman);
+        if (check(buffer, cols, &pacman) == 0) break;
     }
+
+    printf("%u\n", count);
 
     return 0;
 }

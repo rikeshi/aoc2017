@@ -59,9 +59,9 @@ void check(const char buf[], size_t cols, packet *p) {
         else if (r == '|' || r == '-') p->d =  (r == '|') + 1;
     }
     if (c == ' ') {
-        //Done, exit
+        // done, exit
         printf("\n");
-        exit(1);
+        exit(0);
     }
 }
 
@@ -86,6 +86,4 @@ int main(void) {
         move(&pacman);
         check(buffer, cols, &pacman);
     }
-
-    return 0;
 }

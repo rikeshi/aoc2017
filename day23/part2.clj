@@ -9,7 +9,7 @@
 ;;
 ;; Every iteration F starts out at 1, and both D and E start at 2.
 ;; F is set to 0 only if E * D == B.
-;; E increments in a loop until is is equal to B.
+;; E increments in a loop until it is equal to B.
 ;; When this condition is met D increments by 1 and E is reset to 2.
 ;; This then repeats until D is eventually also equal to B.
 ;;
@@ -44,6 +44,7 @@
     (filter false?
       ;; in my input B is incremented by 17 each iteration
       (map prime? (range b (inc c) 17)))))
+
 
 ;; my input's initial B and C values
 (def b (- (* 81 100) -100000))

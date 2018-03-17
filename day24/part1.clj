@@ -27,12 +27,11 @@
 
 
 (defn find-strongest [from components]
-  (let [v (->> (map #(fit from %) components)
-               (filter some?))]
-    (cond
-      (empty? v) 0
-      :else (->> (map (fn [[a b c]] (+ a b (find-strongest c (disj components [a b])))) v)
-                 (reduce max)))))
+  (->> components
+       (map #(fit from %))
+       (filter some?)
+       (map (fn [[a b c]] (+ a b (find-strongest c (disj components [a b])))))
+       (reduce max 0)))
 
 
 (prn (find-strongest 0 (read-input "input")))
